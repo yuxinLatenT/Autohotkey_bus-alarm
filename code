@@ -32,6 +32,7 @@ while(loaded = false)
   		{
   			loaded = true
 			alarm()
+			return
   		}
 		send, {down 11}
 		sleep, 1500
@@ -46,6 +47,7 @@ while(loaded = false)
   		{
   			loaded = true
 			alarm()
+			return
   		}
 		send, {down 11}
 		sleep, 1500
