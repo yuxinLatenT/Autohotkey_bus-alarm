@@ -10,6 +10,20 @@ sleep, 3000
 send, {down 11}
 sleep, 1500
 loaded := false
+alarm()
+{
+	ErrorLevel = 0
+	run, C:\Users\ASUS\Desktop\Autohotkey_bus-alarm\button03b.mp3
+	Inputbox, time_pre, timekeeper(minute), set the alarm if you need, , 200, 150, , 700, , 60 
+	if ErrorLevel = 1
+	{
+		return
+	}
+	time := time_pre * 60000
+	sleep, %time%
+	run, C:\Users\ASUS\Desktop\Autohotkey_bus-alarm\button03b.mp3
+	return
+}
 while(loaded = false)
 {
 	loop 3{
@@ -17,6 +31,7 @@ while(loaded = false)
   		if ErrorLevel = 0
   		{
   			loaded = true
+			alarm()
   		}
 		send, {down 11}
 		sleep, 1500
@@ -30,6 +45,7 @@ while(loaded = false)
   		if ErrorLevel = 0
   		{
   			loaded = true
+			alarm()
   		}
 		send, {down 11}
 		sleep, 1500
@@ -39,14 +55,3 @@ while(loaded = false)
 	send, ^{tab}
 	sleep, 60000
 }
-ErrorLevel = 0
-run, C:\Users\ASUS\Desktop\Autohotkey_bus-alarm\button03b.mp3
-Inputbox, time_pre, timekeeper(minute), set the alarm if you need, , 200, 150, , 700, , 60 
-if ErrorLevel = 1
-{
-	return
-}
-time := time_pre * 60000
-sleep, %time%
-run, C:\Users\ASUS\Desktop\Autohotkey_bus-alarm\button03b.mp3
-return
